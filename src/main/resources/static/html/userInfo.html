@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>个人主页</title>
+  <link rel="stylesheet" type="text/css" href="../css/userInfo.css">
+</head>
+<body>
+<div class="profile-container">
+  <div class="profile-header">
+    <img id="profile-avatar" alt="用户头像" class="profile-avatar">
+    <h1 id="profile-name" class="profile-name"></h1>
+    <p id="profile-nickname" class="profile-nickname"></p>
+  </div>
+  <div class="profile-details">
+    <h2>个人信息</h2>
+    <ul>
+      <li><strong>ID:</strong> <span id="profile-id"></span></li>
+      <li><strong>手机号:</strong> <span id="profile-phoneNumber"></span></li>
+      <li><strong>邮箱:</strong> <span id="profile-email"></span></li>
+      <li><strong>地址:</strong> <span id="profile-address"></span></li>
+      <li><strong>生日:</strong> <span id="profile-birthday"></span></li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 从 localStorage 获取用户信息
+    const userInfoString = localStorage.getItem('user');
+    if (userInfoString) {
+      const userInfo = JSON.parse(userInfoString);
+
+      // 填充用户信息到 HTML 元素
+      document.getElementById('profile-avatar').src = userInfo.avatarUrl;
+      document.getElementById('profile-name').textContent = userInfo.username;
+      document.getElementById('profile-nickname').textContent = '昵称: ' + userInfo.nickname;
+      document.getElementById('profile-id').textContent = userInfo.id;
+      document.getElementById('profile-phoneNumber').textContent = userInfo.phoneNumber;
+      document.getElementById('profile-email').textContent = userInfo.email;
+      document.getElementById('profile-address').textContent = userInfo.address;
+
+      // 格式化生日日期
+      const birthday = new Date(userInfo.birthday);
+      const formattedBirthday = birthday.toISOString().split('T')[0];
+      document.getElementById('profile-birthday').textContent = formattedBirthday;
+    } else {
+      console.error('User info not found in localStorage');
+      // 可以在这里添加其他逻辑，比如跳转到登录页面
+      //window.location.href = 'login.html';
+    }
+  });
+</script>
+</body>
+</html>

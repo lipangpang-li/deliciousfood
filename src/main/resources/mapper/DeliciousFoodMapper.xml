@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.DeliciousFoodMapper">
+    <!-- namespace：命名空间。建议取当前文件的完整路径名，省略xml -->
+
+    <!-- 查询操作 -->
+    <select id="getBySomeThing" resultType="org.example.entity.DeliciousFood">
+        select
+            id_ as id,
+            name_ as name,
+            introduce_ as introduce,
+            step_ as step,
+            picture_id_ as pictureId,
+            video_id_ as videoId,
+            like_count_ as likeCount,
+            collect_count_ as collectCount,
+            attention_ as attention,
+            attribute_ as attribute,
+            ingredient_ as ingredient,
+            ingredient_text_ as ingredientText
+        from
+            delicious_food_
+        where
+            name_ like concat('%', #{something}, '%')
+           or introduce_ like concat('%', #{something}, '%')
+           or ingredient_text_ like concat('%', #{something}, '%')
+    </select>
+
+    <!-- 插入操作 -->
+    <insert id="creatDeliciousFood" parameterType="org.example.entity.DeliciousFood">
+        insert into delicious_food_ (
+            name_,
+            introduce_,
+            step_,
+            picture_id_,
+            video_id_,
+            like_count_,
+            collect_count_,
+            attention_,
+            attribute_,
+            ingredient_,
+            ingredient_text_
+        ) values (
+                     #{name},
+                     #{introduce},
+                     #{step},
+                     #{pictureId},
+                     #{videoId},
+                     #{likeCount},
+                     #{collectCount},
+                     #{attention},
+                     #{attribute},
+                     #{ingredient},
+                     #{ingredientText}
+                 )
+    </insert>
+</mapper>

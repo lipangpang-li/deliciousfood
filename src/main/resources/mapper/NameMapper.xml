@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace= "org.example.mapper.NameMapper">
+    <!--namespace：命名空间。目前取值没有要求，建议取当前文件的完整路径名，省略xml-->
+    <select id="getAll" resultType="org.example.entity.Name">
+        select * from name_
+    </select>
+
+</mapper>

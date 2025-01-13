@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fdebd0; /* 浅橙色背景 */
+}
+
+.container {
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    height: 80%;
+    max-height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff; /* 白色背景 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+    border-radius: 10px; /* 圆角 */
+    overflow: hidden;
+    padding-bottom: 70px; /* 增加底部内边距以容纳主食按钮 */
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.main-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.float-btn, .big-float-btn {
+    background-color: #ff9900; /* 橙色按钮 */
+    color: white;
+    border: none;
+    border-radius: 10px; /* 圆角方形 */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.float-btn:hover, .big-float-btn:hover {
+    transform: scale(1.1);
+    background-color: #e68a00; /* 悬停时更深的橙色 */
+}
+
+.big-float-btn {
+    width: 100px;
+    height: 100px;
+}
+
+#search-box {
+    padding: 10px;
+    width: 300px;
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* 白色背景 */
+}
+
+.bottom-btn {
+    position: absolute;
+    bottom: 20px; /* 调整底部位置 */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 添加一些额外的样式以增强食欲感 */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffcc99 0%, #ff6633 100%);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.main-content h1 {
+    color: #ff6633; /* 橙色标题 */
+    margin-bottom: 20px;
+}
+
+.main-content p {
+    color: #333; /* 深灰色文本 */
+}
+
+.search-btn {
+    background-color: #ff9900; /* 橙色按钮 */
+    color: white;
+    border: none;
+    border-radius: 5px; /* 圆角 */
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-btn:hover {
+    background-color: #e68a00; /* 悬停时更深的橙色 */
+}

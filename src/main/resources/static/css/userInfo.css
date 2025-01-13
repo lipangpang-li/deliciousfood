@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+.profile-header {
+    margin-bottom: 20px;
+}
+
+.profile-avatar {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.profile-name {
+    margin: 10px 0 5px;
+    color: #333;
+    font-size: 24px;
+}
+
+.profile-nickname {
+    color: #777;
+    font-size: 16px;
+}
+
+.profile-details {
+    text-align: left;
+}
+
+.profile-details h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.profile-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.profile-details li {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.profile-details li strong {
+    color: #333;
+}

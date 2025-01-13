@@ -1,0 +1,49 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="container">
+  <div class="sidebar left">
+    <button class="float-btn">凉菜</button>
+    <button class="float-btn">热菜</button>
+    <button class="float-btn">面点</button>
+    <button class="float-btn">卤货</button>
+  </div>
+  <div class="main-content">
+    <input type="text" id="search-box" placeholder="请输入美食或食材的大致名称……">
+    <button id="search-btn" class="search-btn">搜索</button>
+  </div>
+  <div class="sidebar right">
+    <button class="float-btn">火锅</button>
+    <button class="float-btn">汤菜</button>
+    <button class="float-btn">炸货</button>
+    <button class="float-btn">通用</button>
+  </div>
+  <div class="bottom-btn">
+    <button class="big-float-btn">主食</button>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchBox = document.getElementById('search-box');
+    const searchBtn = document.getElementById('search-btn');
+
+    searchBtn.addEventListener('click', function() {
+      const query = searchBox.value.trim();
+      if (query) {
+        // 跳转到 search.html 并传递查询参数
+        window.location.href = `html/search.html?query=${encodeURIComponent(query)}`;
+      } else {
+        alert('请输入搜索关键词');
+      }
+    });
+  });
+</script>
+</body>
+</html>

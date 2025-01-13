@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.UserMapper">
+
+    <!-- 定义公共的字段片段 -->
+    <sql id="userFields">
+        id_ as id,
+        username_ as username,
+        password_ as password,
+        salt_ as salt,
+        phone_number_ as phoneNumber,
+        email_ as email,
+        avatar_url_ as avatarUrl,
+        address_ as address,
+        birthday_ as birthday,
+        nickname_ as nickname
+    </sql>
+
+    <!-- 查询操作 -->
+    <select id="findByUsername" resultType="org.example.entity.User">
+        select
+            <include refid="userFields"/>
+        from
+            users_
+        where
+            username_ = #{username}
+    </select>
+
+    <select id="findByEmail" resultType="org.example.entity.User">
+        select
+            <include refid="userFields"/>
+        from
+            users_
+        where
+            email_ = #{email}
+    </select>
+
+    <select id="findById" resultType="org.example.entity.User">
+        select
+            <include refid="userFields"/>
+        from
+            users_
+        where
+            id_ = #{id}
+    </select>
+
+    <select id="findByPhone" resultType="org.example.entity.User">
+        select
+            <include refid="userFields"/>
+        from
+            users_
+        where
+            phone_number_ = #{phone}
+    </select>
+
+    <select id="getAll" resultType="org.example.entity.User">
+        select
+            <include refid="userFields"/>
+        from
+            users_
+    </select>
+
+    <!-- 插入操作 -->
+    <insert id="save" parameterType="org.example.entity.User" useGeneratedKeys="true" keyProperty="id">
+        insert into users_ (
+            id_,
+            email_,
+            username_,
+            password_,
+            salt_,
+            status_,
+            role_,
+            phone_number_
+        ) values (
+            #{id},
+            #{email},
+            #{username},
+            #{password},
+            #{salt},
+            #{status},
+            #{role},
+            #{phoneNumber}
+        )
+    </insert>
+
+    <!-- 更新操作 -->
+    <update id="updateUser" parameterType="org.example.entity.User">
+        update users_
+        set
+            username_ = #{username},
+            email_ = #{email},
+            password_ = #{password},
+            salt_ = #{salt},
+            status_ = #{status},
+            role_ = #{role},
+            avatar_url_ = #{avatarUrl},
+            phone_number_ = #{phoneNumber},
+            address_ = #{address},
+            birthday_ = #{birthday},
+            nickname_ = #{nickname}
+        where
+            id_ = #{id}
+    </update>
+
+    <update id="updateUserStatus" parameterType="org.example.entity.User">
+        update users_
+        set
+            status = #{status},
+            update_time_ = #{updateTime}
+        where
+            id_ = #{id}
+    </update>
+
+    <update id="updateUserRole" parameterType="org.example.entity.User">
+        update users_
+        set
+            role = #{role},
+            update_time_ = #{updateTime}
+        where
+            id_ = #{id}
+    </update>
+
+    <!-- 删除操作 -->
+    <delete id="deleteById" parameterType="int">
+        delete from users_
+        where
+            id_ = #{id}
+    </delete>
+
+    <select id="existsByPhoneNumber" resultType="boolean">
+        SELECT EXISTS (
+            SELECT 1 FROM users_ WHERE phone_number_ = #{phoneNumber}
+        )
+    </select>
+
+    <select id="existsByEmail" resultType="boolean">
+        SELECT EXISTS (
+            SELECT 1 FROM users_ WHERE email_ = #{email}
+        )
+    </select>
+
+</mapper>
