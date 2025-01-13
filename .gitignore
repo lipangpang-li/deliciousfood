@@ -77,3 +77,30 @@ Dockerfile
 *.jar
 *.war
 *.ear
+
+# .idea 目录
+.idea/
+
+# 其他常见忽略规则
+*.iml
+out/
+target/
+.m2/repository/
+build/
+.gradle/
+.DS_Store
+Thumbs.db
+logs/
+tmp/
+*.log
+*.tmp
+config/application-*.yml
+config/application-*.properties
+Dockerfile
+.dockerenv
+.dockerignore
+.vscode/
+*.class
+*.jar
+*.war
+*.ear
