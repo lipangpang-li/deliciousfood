@@ -1,9 +1,14 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/deliciousfood
-    username: root
-    password: 123456
+    #url: jdbc:mysql://localhost:3306/deliciousfood
+    #username: root
+    #password: 123456
+
+    #线上阿里云数据库
+    url: jdbc:mysql://rm-cn-g4t42nm7c00050ao.rwlb.rds.aliyuncs.com/deliciousfood
+    username: lipangpang
+    password: 1994xpp0805w@
 
   jackson:
     date-format: yyyy-MM-dd'T'HH:mm:ss.SSSZ
