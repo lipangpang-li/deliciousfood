@@ -1,15 +1,18 @@
 package org.example.test;
 
+import lombok.Data;
+
 public class ThirdTest {
 
     public static void main(String[] args) {
+        Usr usr = new Usr();
+        usr.setName("start");
 
-        String stringBuilder = new String("begin");
-        System.out.println(stringBuilder);
-        String test = test(stringBuilder);
+        Usr a = usr;
+        a.setName("end");
 
-        System.out.println(stringBuilder);
-        System.out.println(test);
+        System.out.println(usr);
+
     }
 
     public static String test(String string) {
@@ -17,4 +20,9 @@ public class ThirdTest {
         string = "end";
         return string;
     }
+}
+
+@Data
+class Usr{
+    private String name;
 }
